@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jed Henry - Computer Science</title>
+  <link rel="icon" type="x-icon" href="favicon.ico">
+
+  <h6>Click <a href="https://www.linkedin.com/in/jed-henry-0aa21a235/"> Here</a> for my 
+    linkedin</h6>
+
+  <style>
+
+    body {
+      background-color: #3b2e5f; 
+      color: black; 
+    }
+
+    img {
+        position: absolute;
+        top: 70%;
+    }
+
+    .bottom-right {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        padding: 10px;
+ 
+    }
+    .hidden {
+        display: none;
+    }
+
+    .slide-in {
+        animation: slideIn 0.5s forwards;
+    }
+    .slide-out {
+        animation: slideOut 0.5s forwards;
+    }
+
+    @keyframes slideIn {
+        from {
+            transform: translateX(-100%);
+        }
+        to {
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes slideOut {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(100%);
+        }
+    }
+    
+    a {
+        position: relative;
+        text-decoration: none; 
+        color: rgb(71, 71, 104);
+    }
+
+    a::after {
+        content: '';
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        width: 100%;
+        height: 2px; 
+        background-color: black; 
+        transform: scaleX(0); 
+        transition: transform 0.3s ease; 
+    }
+
+    a:hover::after {
+        transform: scaleX(1); 
+    }
+    </style>
+
+<p><div class="bottom-right">&copy; 2024 Jed Henry</div></p> 
+</head>
+<body>
+  <header>
+    <h1>Welcome to Jed Henry's Page</h1>
+  </header>
+  <main>
+    <section>
+      <h2>About Me</h2>
+      <p>My name is Jed Henry and I am currently majoring in Computer Science.</p>
+    </section>
+    <section>
+      <h2><a href="#" id="link1">Contact Information</a></h2>
+      <div id="explanation1" class="hidden">
+        <p>Email: jdh315@georgetown.edu</p>
+        <p>Phone: 609-331-0043</p>    
+      </div>
+    </section>
+  
+    <a href="https://guhoyas.com/sports/football/roster/jed-henry/14362"><img src ="IMG_6884.png" id ="footballPicture" width="400" height="200"></a>
+    <section>
+      <h2>Interests</h2>
+       <h4><a href="#" id ="link2">Web Development</a></h4>
+        <div id="explanation2" class="hidden">
+            <p>This is where I will put the links to </p>
+            <p>many of my unique projects once they are done!</p>
+          <p>But right now I don't have any projects ready 
+            at the moment comeback later!</p>
+        </div>
+
+        <h4><a href="#" id = "link3">Coding</a></h4>
+        <div id="explanation3" class="hidden">
+            <p> Over the past three years, I've been deeply invested </p>
+               <p>   in the world of coding at Georgetown University,</p>
+               <p> where I've had the opportunity to explore a lot</p>
+                  <p>  of programming languages and technologies.</p>
+                  <p> From C++ to  Java,</p>
+                   <p> also markup languages like HTML and CSS</p>
+                <p> my journey into coding has been </p>
+                 <p>  both fun and interesting </p>
+          </div>
+        <h4><a href="#" id = "link4">Football</a></h4>
+        <div id="explanation4" class="hidden">
+            <p> For over a decade, football has been my passion
+            <p>  and a journey of personal growth.
+            <p> Despite coming from a school with minimal sports importance,
+            <p> I pushed myself both athletically and academically,
+            <p>determined to be "different". With every day working at it
+            <p> I achieved excellence, and it was fueled by the dream of attending a 
+            <p> prestigious university like Georgetown. Football taught me discipline, 
+            <p>teamwork, and resilience, qualities that ultimately 
+            <p> led me to fulfill that dream. Now, as I reflect on my journey,
+            <p> I'm grateful for the opportunities and lessons learned,
+             <p> knowing that with dedication and perseverance, any goal is achievable.
+          </div>
+      
+
+    </section>
+
+    <h5>Feel Free To Click The Gray Links For More Info</h5>  
+    <script src ="JedsWeb.js"> </script>   
+  </main>
+  <footer>
+    
+  </footer>
+</body>
+</html>
