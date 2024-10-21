@@ -4,146 +4,277 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jed Henry - Computer Science</title>
-  <link rel="icon" type="x-icon" href="favicon.ico">
-
-  <h6>Click <a href="https://www.linkedin.com/in/jed-henry-0aa21a235/"> Here</a> for my 
-    linkedin</h6>
+  <link rel="icon" type="x-icon" href="favicon.ico"> 
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 
   <style>
-
+    /* Background Animation */
     body {
-      background-color: #3b2e5f; 
-      color: black; 
+      background: linear-gradient(135deg, #3b2e5f, #1f1c45);
+      background-size: 400% 400%;
+      animation: gradientAnimation 15s ease infinite;
+      font-family: 'Roboto', sans-serif;
+      color: #eaeaea;
+      margin: 0;
     }
 
-    img {
-        position: absolute;
-        top: 70%;
+    @keyframes gradientAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
-    .bottom-right {
-        position: fixed;
-        bottom: 0;
-        right: 0;
-        padding: 10px;
- 
-    }
-    .hidden {
-        display: none;
+    /* Smooth Scrolling */
+    html {
+      scroll-behavior: smooth;
     }
 
-    .slide-in {
-        animation: slideIn 0.5s forwards;
-    }
-    .slide-out {
-        animation: slideOut 0.5s forwards;
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      body {
+        font-size: 14px;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+
+      .bottom-right {
+        font-size: 12px;
+      }
     }
 
-    @keyframes slideIn {
-        from {
-            transform: translateX(-100%);
-        }
-        to {
-            transform: translateX(0);
-        }
+    /* Typography and Links */
+    h1, h2, h4 {
+      color: #ffffff;
     }
 
-    @keyframes slideOut {
-        from {
-            transform: translateX(0);
-        }
-        to {
-            transform: translateX(100%);
-        }
+    p {
+      color: #c0c0c0;
     }
-    
+
     a {
-        position: relative;
-        text-decoration: none; 
-        color: rgb(71, 71, 104);
+      color: #b8b8ff;
+      position: relative;
+      text-decoration: none;
     }
 
     a::after {
-        content: '';
-        position: absolute;
-        bottom: -3px;
-        left: 0;
-        width: 100%;
-        height: 2px; 
-        background-color: black; 
-        transform: scaleX(0); 
-        transition: transform 0.3s ease; 
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 100%;
+      height: 2px; 
+      background-color: black; 
+      transform: scaleX(0); 
+      transition: transform 0.3s ease; 
     }
 
     a:hover::after {
-        transform: scaleX(1); 
+      transform: scaleX(1); 
     }
-    </style>
 
-<p><div class="bottom-right">&copy; 2024 Jed Henry</div></p> 
+    /* Football Picture Hover */
+    #footballPicture {
+      transition: transform 0.5s ease;
+    }
+
+    #footballPicture:hover {
+      transform: scale(1.1);
+    }
+
+    /* Image Animation */
+    img {
+      position: absolute;
+      top: 70%;
+    }
+
+    /* Slide-in explanations */
+    .hidden {
+      display: none;
+    }
+
+    .slide-in {
+      animation: slideIn 0.5s forwards;
+    }
+
+    .slide-out {
+      animation: slideOut 0.5s forwards;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(-100%);
+      }
+      to {
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideOut {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(100%);
+      }
+    }
+
+    /* Social Media Icons */
+    .social-media {
+      position: fixed;
+      top: 50%;
+      left: 20px;
+      transform: translateY(-50%);
+    }
+
+    .social-media a img {
+      margin: 10px 0;
+      width: 40px;
+      transition: transform 0.3s;
+    }
+
+    .social-media a img:hover {
+      transform: scale(1.2);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #2a224a;
+    }
+
+    /* Bottom Right Text */
+    .bottom-right {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      padding: 10px;
+    }
+  </style>
+
+  <script>
+    window.onload = function(){
+      var img = document.getElementById('footballPicture');
+
+      var dx = 1; // Horizontal movement
+      var dy = 1; // Vertical movement
+
+      function moveImage() {
+        var topPos = parseInt(img.style.top) || 0;
+        var leftPos = parseInt(img.style.left) || 0;
+
+        var newTop = topPos + dy;
+        var newLeft = leftPos + dx;
+
+        if (newTop + img.height >= window.innerHeight || newTop <= 0) {
+          dy = -dy;
+        }
+
+        if (newLeft + img.width >= window.innerWidth || newLeft <= 0) {
+          dx = -dx;
+        }
+
+        img.style.top = newTop + 'px';
+        img.style.left = newLeft + 'px';
+
+        requestAnimationFrame(moveImage);
+      }
+
+      moveImage();
+    };
+
+    function slideInExplanation(linkId, explanationId) {
+      var link = document.getElementById(linkId);
+      var explanation = document.getElementById(explanationId);
+      
+      link.addEventListener('click', function(event) {
+        event.preventDefault();
+        if (explanation.classList.contains('hidden')) {
+          explanation.classList.remove('hidden');
+          explanation.classList.add('slide-in');
+        } else {
+          explanation.classList.remove('slide-in');
+          explanation.classList.add('hidden');
+        }
+      });
+    }
+
+    slideInExplanation('link1', 'explanation1');
+    slideInExplanation('link2', 'explanation2');
+    slideInExplanation('link3', 'explanation3');
+    slideInExplanation('link4', 'explanation4');
+  </script>
 </head>
 <body>
   <header>
     <h1>Welcome to Jed Henry's Page</h1>
   </header>
+
+  <div class="social-media">
+    <a href="https://www.linkedin.com/in/jed-henry-0aa21a235/" target="_blank">
+      <img src="linkedin-icon.png" alt="LinkedIn">
+    </a>
+  </div>
+
   <main>
     <section>
       <h2>About Me</h2>
       <p>My name is Jed Henry and I am currently majoring in Computer Science.</p>
     </section>
+
     <section>
       <h2><a href="#" id="link1">Contact Information</a></h2>
       <div id="explanation1" class="hidden">
-        <p>Email: jdh315@georgetown.edu</p>
-        <p>Phone: 609-331-0043</p>    
+        <p>
+          <img src="email-icon.png" alt="Email Icon" style="width: 20px;"> 
+          Email: <a href="mailto:jdh315@georgetown.edu">jdh315@georgetown.edu</a>
+        </p>
+        <p>
+          <img src="phone-icon.png" alt="Phone Icon" style="width: 20px;"> 
+          Phone: <a href="tel:6093310043">609-331-0043</a>
+        </p>
       </div>
     </section>
-  
-    <a href="https://guhoyas.com/sports/football/roster/jed-henry/14362"><img src ="IMG_6884.png" id ="footballPicture" width="400" height="200"></a>
+
+    <a href="https://guhoyas.com/sports/football/roster/jed-henry/14362">
+      <img src="IMG_6884.png" id="footballPicture" width="400" height="200">
+    </a>
+
     <section>
       <h2>Interests</h2>
-       <h4><a href="#" id ="link2">Web Development</a></h4>
-        <div id="explanation2" class="hidden">
-            <p>This is where I will put the links to </p>
-            <p>many of my unique projects once they are done!</p>
-          <p>But right now I don't have any projects ready 
-            at the moment comeback later!</p>
-        </div>
+      <h4><a href="#" id="link2">Web Development</a></h4>
+      <div id="explanation2" class="hidden">
+        <p>This is where I will put the links to many of my unique projects once they are done!</p>
+        <p>But right now I don't have any projects ready at the moment comeback later!</p>
+      </div>
 
-        <h4><a href="#" id = "link3">Coding</a></h4>
-        <div id="explanation3" class="hidden">
-            <p> Over the past three years, I've been deeply invested </p>
-               <p>   in the world of coding at Georgetown University,</p>
-               <p> where I've had the opportunity to explore a lot</p>
-                  <p>  of programming languages and technologies.</p>
-                  <p> From C++ to  Java,</p>
-                   <p> also markup languages like HTML and CSS</p>
-                <p> my journey into coding has been </p>
-                 <p>  both fun and interesting </p>
-          </div>
-        <h4><a href="#" id = "link4">Football</a></h4>
-        <div id="explanation4" class="hidden">
-            <p> For over a decade, football has been my passion
-            <p>  and a journey of personal growth.
-            <p> Despite coming from a school with minimal sports importance,
-            <p> I pushed myself both athletically and academically,
-            <p>determined to be "different". With every day working at it
-            <p> I achieved excellence, and it was fueled by the dream of attending a 
-            <p> prestigious university like Georgetown. Football taught me discipline, 
-            <p>teamwork, and resilience, qualities that ultimately 
-            <p> led me to fulfill that dream. Now, as I reflect on my journey,
-            <p> I'm grateful for the opportunities and lessons learned,
-             <p> knowing that with dedication and perseverance, any goal is achievable.
-          </div>
-      
+      <h4><a href="#" id="link3">Coding</a></h4>
+      <div id="explanation3" class="hidden">
+        <p> Over the past three years, I've been deeply invested in coding at Georgetown University,</p>
+        <p> where I've explored programming languages like C++, Java, HTML, and CSS.</p>
+        <p> My journey into coding has been both fun and interesting.</p>
+      </div>
 
+      <h4><a href="#" id="link4">Football</a></h4>
+      <div id="explanation4" class="hidden">
+        <p>Football has been my passion for over a decade, teaching me discipline, teamwork, and resilience.</p>
+        <p>Despite challenges, I pushed myself to excel and fulfill my dream of attending Georgetown.</p>
+      </div>
     </section>
 
-    <h5>Feel Free To Click The Gray Links For More Info</h5>  
-    <script src ="JedsWeb.js"> </script>   
+    <h5>Feel Free To Click The Gray Links For More Info</h5>
   </main>
+
   <footer>
-    
+    <p>&copy; <span id="currentYear"></span> Jed Henry. All Rights Reserved.</p>
   </footer>
+
+  <script>
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
