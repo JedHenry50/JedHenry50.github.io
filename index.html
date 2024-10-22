@@ -4,277 +4,289 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jed Henry - Computer Science</title>
-  <link rel="icon" type="x-icon" href="favicon.ico"> 
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
 
   <style>
-    /* Background Animation */
-    body {
-      background: linear-gradient(135deg, #3b2e5f, #1f1c45);
-      background-size: 400% 400%;
-      animation: gradientAnimation 15s ease infinite;
-      font-family: 'Roboto', sans-serif;
-      color: #eaeaea;
+    /* Global Styles */
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    @keyframes gradientAnimation {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #2C2E43;
+      color: #F7F7F7;
+      line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    /* Smooth Scrolling */
-    html {
-      scroll-behavior: smooth;
+    header {
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2)), url('hero-bg.jpg') center/cover no-repeat;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #F7F7F7;
     }
 
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      body {
-        font-size: 14px;
-      }
-
-      img {
-        width: 100%;
-        height: auto;
-      }
-
-      .bottom-right {
-        font-size: 12px;
-      }
+    header h1 {
+      font-size: 4rem;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
     }
 
-    /* Typography and Links */
-    h1, h2, h4 {
-      color: #ffffff;
+    header p {
+      font-size: 1.5rem;
+      font-weight: 300;
+      margin-bottom: 30px;
+    }
+
+    header a {
+      background-color: #F2545B;
+      color: #F7F7F7;
+      padding: 12px 25px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    header a:hover {
+      background-color: #FF616D;
+    }
+
+    nav {
+      background-color: #2C2E43;
+      padding: 15px;
+      text-align: right;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 10;
+    }
+
+    nav ul {
+      list-style: none;
+    }
+
+    nav ul li {
+      display: inline;
+      margin-left: 30px;
+    }
+
+    nav ul li a {
+      color: #F7F7F7;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #F2545B;
+    }
+
+    /* Section Styling */
+    section {
+      padding: 60px 20px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 3rem;
+      color: #F2545B;
+      margin-bottom: 20px;
     }
 
     p {
-      color: #c0c0c0;
+      font-size: 1.2rem;
+      color: #C8C8C8;
+      margin-bottom: 30px;
     }
 
-    a {
-      color: #b8b8ff;
-      position: relative;
+    .btn-primary {
+      background-color: #F2545B;
+      color: #F7F7F7;
+      padding: 10px 20px;
+      border-radius: 30px;
       text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
     }
 
-    a::after {
-      content: '';
-      position: absolute;
-      bottom: -3px;
-      left: 0;
-      width: 100%;
-      height: 2px; 
-      background-color: black; 
-      transform: scaleX(0); 
-      transition: transform 0.3s ease; 
+    .btn-primary:hover {
+      background-color: #FF616D;
     }
 
-    a:hover::after {
-      transform: scaleX(1); 
+    /* About Section */
+    .about {
+      background-color: #2C2E43;
+      color: #F7F7F7;
     }
 
-    /* Football Picture Hover */
-    #footballPicture {
-      transition: transform 0.5s ease;
+    .about img {
+      max-width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
-    #footballPicture:hover {
-      transform: scale(1.1);
+    .about .content {
+      text-align: left;
+      padding: 20px;
     }
 
-    /* Image Animation */
-    img {
-      position: absolute;
-      top: 70%;
+    /* Interests Section */
+    .interests {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
-    /* Slide-in explanations */
-    .hidden {
-      display: none;
+    .interest-card {
+      background-color: #373A4E;
+      border-radius: 15px;
+      margin: 20px;
+      width: 300px;
+      padding: 20px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .slide-in {
-      animation: slideIn 0.5s forwards;
+    .interest-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
 
-    .slide-out {
-      animation: slideOut 0.5s forwards;
+    .interest-card h3 {
+      color: #F2545B;
     }
 
-    @keyframes slideIn {
-      from {
-        transform: translateX(-100%);
-      }
-      to {
-        transform: translateX(0);
-      }
+    /* Contact Section */
+    .contact {
+      background-color: #2C2E43;
+      padding: 40px 0;
     }
 
-    @keyframes slideOut {
-      from {
-        transform: translateX(0);
-      }
-      to {
-        transform: translateX(100%);
-      }
+    .contact .contact-info {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
     }
 
-    /* Social Media Icons */
+    .contact-info div {
+      margin: 10px;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .contact-info a {
+      color: #F7F7F7;
+      text-decoration: none;
+      font-size: 1.5rem;
+      margin-top: 10px;
+      display: block;
+      transition: color 0.3s ease;
+    }
+
+    .contact-info a:hover {
+      color: #F2545B;
+    }
+
+    /* Social Media Links */
     .social-media {
-      position: fixed;
-      top: 50%;
-      left: 20px;
-      transform: translateY(-50%);
+      margin: 40px 0;
+      text-align: center;
     }
 
-    .social-media a img {
-      margin: 10px 0;
-      width: 40px;
-      transition: transform 0.3s;
+    .social-media a {
+      color: #F7F7F7;
+      font-size: 2rem;
+      margin: 0 15px;
+      transition: color 0.3s ease;
     }
 
-    .social-media a img:hover {
-      transform: scale(1.2);
+    .social-media a:hover {
+      color: #F2545B;
     }
 
     /* Footer */
     footer {
+      background-color: #2C2E43;
+      padding: 20px 0;
       text-align: center;
-      padding: 20px;
-      background: #2a224a;
+      color: #F7F7F7;
     }
 
-    /* Bottom Right Text */
-    .bottom-right {
-      position: fixed;
-      bottom: 0;
-      right: 0;
-      padding: 10px;
-    }
   </style>
-
-  <script>
-    window.onload = function(){
-      var img = document.getElementById('footballPicture');
-
-      var dx = 1; // Horizontal movement
-      var dy = 1; // Vertical movement
-
-      function moveImage() {
-        var topPos = parseInt(img.style.top) || 0;
-        var leftPos = parseInt(img.style.left) || 0;
-
-        var newTop = topPos + dy;
-        var newLeft = leftPos + dx;
-
-        if (newTop + img.height >= window.innerHeight || newTop <= 0) {
-          dy = -dy;
-        }
-
-        if (newLeft + img.width >= window.innerWidth || newLeft <= 0) {
-          dx = -dx;
-        }
-
-        img.style.top = newTop + 'px';
-        img.style.left = newLeft + 'px';
-
-        requestAnimationFrame(moveImage);
-      }
-
-      moveImage();
-    };
-
-    function slideInExplanation(linkId, explanationId) {
-      var link = document.getElementById(linkId);
-      var explanation = document.getElementById(explanationId);
-      
-      link.addEventListener('click', function(event) {
-        event.preventDefault();
-        if (explanation.classList.contains('hidden')) {
-          explanation.classList.remove('hidden');
-          explanation.classList.add('slide-in');
-        } else {
-          explanation.classList.remove('slide-in');
-          explanation.classList.add('hidden');
-        }
-      });
-    }
-
-    slideInExplanation('link1', 'explanation1');
-    slideInExplanation('link2', 'explanation2');
-    slideInExplanation('link3', 'explanation3');
-    slideInExplanation('link4', 'explanation4');
-  </script>
 </head>
 <body>
+
+  <!-- Navbar -->
+  <nav>
+    <ul>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#interests">Interests</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
   <header>
-    <h1>Welcome to Jed Henry's Page</h1>
+    <div>
+      <h1>Jed Henry</h1>
+      <p>Computer Science Major | Georgetown University</p>
+      <a href="#contact" class="btn-primary">Get In Touch</a>
+    </div>
   </header>
 
-  <div class="social-media">
-    <a href="https://www.linkedin.com/in/jed-henry-0aa21a235/" target="_blank">
-      <img src="linkedin-icon.png" alt="LinkedIn">
-    </a>
-  </div>
-
-  <main>
-    <section>
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="container">
       <h2>About Me</h2>
-      <p>My name is Jed Henry and I am currently majoring in Computer Science.</p>
-    </section>
-
-    <section>
-      <h2><a href="#" id="link1">Contact Information</a></h2>
-      <div id="explanation1" class="hidden">
-        <p>
-          <img src="email-icon.png" alt="Email Icon" style="width: 20px;"> 
-          Email: <a href="mailto:jdh315@georgetown.edu">jdh315@georgetown.edu</a>
-        </p>
-        <p>
-          <img src="phone-icon.png" alt="Phone Icon" style="width: 20px;"> 
-          Phone: <a href="tel:6093310043">609-331-0043</a>
-        </p>
+      <div class="content">
+        <p>I'm Jed Henry, a passionate Computer Science major at Georgetown University, where I've been honing my coding skills and developing projects in various technologies. Beyond the world of code, I’m also deeply involved in athletics, particularly football, where I strive for excellence both on and off the field.</p>
+        <img src="IMG_6884.png" alt="Jed Henry Football">
       </div>
-    </section>
+    </div>
+  </section>
 
-    <a href="https://guhoyas.com/sports/football/roster/jed-henry/14362">
-      <img src="IMG_6884.png" id="footballPicture" width="400" height="200">
-    </a>
-
-    <section>
-      <h2>Interests</h2>
-      <h4><a href="#" id="link2">Web Development</a></h4>
-      <div id="explanation2" class="hidden">
-        <p>This is where I will put the links to many of my unique projects once they are done!</p>
-        <p>But right now I don't have any projects ready at the moment comeback later!</p>
+  <!-- Interests Section -->
+  <section id="interests">
+    <div class="container">
+      <h2>My Interests</h2>
+      <div class="interests">
+        <div class="interest-card">
+          <h3>Web Development</h3>
+          <p>I am passionate about creating modern, responsive, and user-friendly websites, and I’m constantly working on improving my skills in front-end and back-end development.</p>
+        </div>
+        <div class="interest-card">
+          <h3>Coding</h3>
+          <p>From C++ to Java, I have a strong interest in solving problems through code. I love learning new languages and techniques to tackle challenges creatively.</p>
+        </div>
+        <div class="interest-card">
+          <h3>Football</h3>
+          <p>Football has been a major part of my life, teaching me discipline, teamwork, and leadership. It’s shaped who I am both as an athlete and as a person.</p>
+        </div>
       </div>
+    </div>
+  </section>
 
-      <h4><a href="#" id="link3">Coding</a></h4>
-      <div id="explanation3" class="hidden">
-        <p> Over the past three years, I've been deeply invested in coding at Georgetown University,</p>
-        <p> where I've explored programming languages like C++, Java, HTML, and CSS.</p>
-        <p> My journey into coding has been both fun and interesting.</p>
-      </div>
-
-      <h4><a href="#" id="link4">Football</a></h4>
-      <div id="explanation4" class="hidden">
-        <p>Football has been my passion for over a decade, teaching me discipline, teamwork, and resilience.</p>
-        <p>Despite challenges, I pushed myself to excel and fulfill my dream of attending Georgetown.</p>
-      </div>
-    </section>
-
-    <h5>Feel Free To Click The Gray Links For More Info</h5>
-  </main>
-
-  <footer>
-    <p>&copy; <span id="currentYear"></span> Jed Henry. All Rights Reserved.</p>
-  </footer>
-
-  <script>
-    document.getElementById('currentYear').textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2>Contact Me</h2>
+      <div class="contact-info">
+        <div>
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:jdh315@georgetown.edu">Email: jdh315@georgetown
