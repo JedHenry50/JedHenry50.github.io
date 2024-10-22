@@ -4,146 +4,289 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jed Henry - Computer Science</title>
-  <link rel="icon" type="x-icon" href="favicon.ico">
-
-  <h6>Click <a href="https://www.linkedin.com/in/jed-henry-0aa21a235/"> Here</a> for my 
-    linkedin</h6>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
 
   <style>
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
     body {
-      background-color: #3b2e5f; 
-      color: black; 
+      font-family: 'Poppins', sans-serif;
+      background-color: #2C2E43;
+      color: #F7F7F7;
+      line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    img {
-        position: absolute;
-        top: 70%;
+    header {
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2)), url('hero-bg.jpg') center/cover no-repeat;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #F7F7F7;
     }
 
-    .bottom-right {
-        position: fixed;
-        bottom: 0;
-        right: 0;
-        padding: 10px;
- 
-    }
-    .hidden {
-        display: none;
+    header h1 {
+      font-size: 4rem;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
     }
 
-    .slide-in {
-        animation: slideIn 0.5s forwards;
-    }
-    .slide-out {
-        animation: slideOut 0.5s forwards;
-    }
-
-    @keyframes slideIn {
-        from {
-            transform: translateX(-100%);
-        }
-        to {
-            transform: translateX(0);
-        }
+    header p {
+      font-size: 1.5rem;
+      font-weight: 300;
+      margin-bottom: 30px;
     }
 
-    @keyframes slideOut {
-        from {
-            transform: translateX(0);
-        }
-        to {
-            transform: translateX(100%);
-        }
-    }
-    
-    a {
-        position: relative;
-        text-decoration: none; 
-        color: rgb(71, 71, 104);
+    header a {
+      background-color: #F2545B;
+      color: #F7F7F7;
+      padding: 12px 25px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s ease;
     }
 
-    a::after {
-        content: '';
-        position: absolute;
-        bottom: -3px;
-        left: 0;
-        width: 100%;
-        height: 2px; 
-        background-color: black; 
-        transform: scaleX(0); 
-        transition: transform 0.3s ease; 
+    header a:hover {
+      background-color: #FF616D;
     }
 
-    a:hover::after {
-        transform: scaleX(1); 
+    nav {
+      background-color: #2C2E43;
+      padding: 15px;
+      text-align: right;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 10;
     }
-    </style>
 
-<p><div class="bottom-right">&copy; 2024 Jed Henry</div></p> 
+    nav ul {
+      list-style: none;
+    }
+
+    nav ul li {
+      display: inline;
+      margin-left: 30px;
+    }
+
+    nav ul li a {
+      color: #F7F7F7;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #F2545B;
+    }
+
+    /* Section Styling */
+    section {
+      padding: 60px 20px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 3rem;
+      color: #F2545B;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #C8C8C8;
+      margin-bottom: 30px;
+    }
+
+    .btn-primary {
+      background-color: #F2545B;
+      color: #F7F7F7;
+      padding: 10px 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: #FF616D;
+    }
+
+    /* About Section */
+    .about {
+      background-color: #2C2E43;
+      color: #F7F7F7;
+    }
+
+    .about img {
+      max-width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .about .content {
+      text-align: left;
+      padding: 20px;
+    }
+
+    /* Interests Section */
+    .interests {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .interest-card {
+      background-color: #373A4E;
+      border-radius: 15px;
+      margin: 20px;
+      width: 300px;
+      padding: 20px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .interest-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .interest-card h3 {
+      color: #F2545B;
+    }
+
+    /* Contact Section */
+    .contact {
+      background-color: #2C2E43;
+      padding: 40px 0;
+    }
+
+    .contact .contact-info {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .contact-info div {
+      margin: 10px;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .contact-info a {
+      color: #F7F7F7;
+      text-decoration: none;
+      font-size: 1.5rem;
+      margin-top: 10px;
+      display: block;
+      transition: color 0.3s ease;
+    }
+
+    .contact-info a:hover {
+      color: #F2545B;
+    }
+
+    /* Social Media Links */
+    .social-media {
+      margin: 40px 0;
+      text-align: center;
+    }
+
+    .social-media a {
+      color: #F7F7F7;
+      font-size: 2rem;
+      margin: 0 15px;
+      transition: color 0.3s ease;
+    }
+
+    .social-media a:hover {
+      color: #F2545B;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #2C2E43;
+      padding: 20px 0;
+      text-align: center;
+      color: #F7F7F7;
+    }
+
+  </style>
 </head>
 <body>
+
+  <!-- Navbar -->
+  <nav>
+    <ul>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#interests">Interests</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
   <header>
-    <h1>Welcome to Jed Henry's Page</h1>
+    <div>
+      <h1>Jed Henry</h1>
+      <p>Computer Science Major | Georgetown University</p>
+      <a href="#contact" class="btn-primary">Get In Touch</a>
+    </div>
   </header>
-  <main>
-    <section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="container">
       <h2>About Me</h2>
-      <p>My name is Jed Henry and I am currently majoring in Computer Science.</p>
-    </section>
-    <section>
-      <h2><a href="#" id="link1">Contact Information</a></h2>
-      <div id="explanation1" class="hidden">
-        <p>Email: jdh315@georgetown.edu</p>
-        <p>Phone: 609-331-0043</p>    
+      <div class="content">
+        <p>I'm Jed Henry, a passionate Computer Science major at Georgetown University, where I've been honing my coding skills and developing projects in various technologies. Beyond the world of code, I’m also deeply involved in athletics, particularly football, where I strive for excellence both on and off the field.</p>
+        <img src="IMG_6884.png" alt="Jed Henry Football">
       </div>
-    </section>
-  
-    <a href="https://guhoyas.com/sports/football/roster/jed-henry/14362"><img src ="IMG_6884.png" id ="footballPicture" width="400" height="200"></a>
-    <section>
-      <h2>Interests</h2>
-       <h4><a href="#" id ="link2">Web Development</a></h4>
-        <div id="explanation2" class="hidden">
-            <p>This is where I will put the links to </p>
-            <p>many of my unique projects once they are done!</p>
-          <p>But right now I don't have any projects ready 
-            at the moment comeback later!</p>
+    </div>
+  </section>
+
+  <!-- Interests Section -->
+  <section id="interests">
+    <div class="container">
+      <h2>My Interests</h2>
+      <div class="interests">
+        <div class="interest-card">
+          <h3>Web Development</h3>
+          <p>I am passionate about creating modern, responsive, and user-friendly websites, and I’m constantly working on improving my skills in front-end and back-end development.</p>
         </div>
+        <div class="interest-card">
+          <h3>Coding</h3>
+          <p>From C++ to Java, I have a strong interest in solving problems through code. I love learning new languages and techniques to tackle challenges creatively.</p>
+        </div>
+        <div class="interest-card">
+          <h3>Football</h3>
+          <p>Football has been a major part of my life, teaching me discipline, teamwork, and leadership. It’s shaped who I am both as an athlete and as a person.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <h4><a href="#" id = "link3">Coding</a></h4>
-        <div id="explanation3" class="hidden">
-            <p> Over the past three years, I've been deeply invested </p>
-               <p>   in the world of coding at Georgetown University,</p>
-               <p> where I've had the opportunity to explore a lot</p>
-                  <p>  of programming languages and technologies.</p>
-                  <p> From C++ to  Java,</p>
-                   <p> also markup languages like HTML and CSS</p>
-                <p> my journey into coding has been </p>
-                 <p>  both fun and interesting </p>
-          </div>
-        <h4><a href="#" id = "link4">Football</a></h4>
-        <div id="explanation4" class="hidden">
-            <p> For over a decade, football has been my passion
-            <p>  and a journey of personal growth.
-            <p> Despite coming from a school with minimal sports importance,
-            <p> I pushed myself both athletically and academically,
-            <p>determined to be "different". With every day working at it
-            <p> I achieved excellence, and it was fueled by the dream of attending a 
-            <p> prestigious university like Georgetown. Football taught me discipline, 
-            <p>teamwork, and resilience, qualities that ultimately 
-            <p> led me to fulfill that dream. Now, as I reflect on my journey,
-            <p> I'm grateful for the opportunities and lessons learned,
-             <p> knowing that with dedication and perseverance, any goal is achievable.
-          </div>
-      
-
-    </section>
-
-    <h5>Feel Free To Click The Gray Links For More Info</h5>  
-    <script src ="JedsWeb.js"> </script>   
-  </main>
-  <footer>
-    
-  </footer>
-</body>
-</html>
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2>Contact Me</h2>
+      <div class="contact-info">
+        <div>
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:jdh315@georgetown.edu">Email: jdh315@georgetown
